@@ -1,6 +1,7 @@
 package input.components.segment;
 
 import input.components.point.PointNode;
+import utilities.math.MathUtilities;
 
 /**
  * A utility class only for representing ONE segment
@@ -15,13 +16,26 @@ public class SegmentNode
 	
 	public SegmentNode(PointNode pt1, PointNode pt2)
 	{
-		_point1 = pt1;
-		_point2 = pt2;
+		this._point1 = pt1;
+		this._point2 = pt2;
 	}
 
 	@Override
 	public boolean equals(Object obj)
 	{
-		// TODO
+		//Checking obj, casting as a SegmentNode
+		if (obj == null) return false;
+		if (!(obj instanceof SegmentNode)) return false;
+		SegmentNode o = (SegmentNode) obj;
+		
+		//Finding which o point that _point1 is equal to, so that we can compare _point2 with the other
+		boolean which = true;
+		if ((_point1.equals(o.getPoint1())) && !(_point1.equals(o.getPoint2())));
+		else if (!(_point1.equals(o.getPoint1())) && (_point1.equals(o.getPoint2()))) which = false;
+		else return false;
+		
+		//Compares _point2 with the remaining point
+		if(which) return (_point2.equals(o.getPoint2()));
+		return false;
 	}
 }

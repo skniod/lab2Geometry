@@ -27,7 +27,6 @@ public class PointNode
 	{
 		this._x = x;
 		this._y = y;
-		PointNode point = new PointNode(_x, _y);
 	}
 
 	/**
@@ -51,9 +50,12 @@ public class PointNode
 	@Override
 	public boolean equals(Object obj)
 	{
+		//Checking obj, casting it as a PointNode
 		if (obj == null) return false;
 		if (!(obj instanceof PointNode)) return false;
 		PointNode o = (PointNode) obj;
+		
+		//Compares the corresponding coordinates for each PointNode
 		return (MathUtilities.doubleEquals(o._x, this._x) && MathUtilities.doubleEquals(o._y, this._y));
 	}
 
