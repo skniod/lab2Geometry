@@ -36,6 +36,6 @@ public class SegmentNode
 		
 		//Compares _point2 with the remaining point
 		if(which) return (_point2.equals(o.getPoint2()));
-		return false;
+		return (_point2.equals(o.getPoint1()));
 	}
 }
