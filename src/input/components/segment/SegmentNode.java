@@ -38,4 +38,8 @@ public class SegmentNode
 		if(which) return (_point2.equals(o.getPoint2()));
 		return (_point2.equals(o.getPoint1()));
 	}
+	public String toString()
+    {
+		return  "(" + this._point1 + ", " + this._point2 + ")";
+	}
 }
