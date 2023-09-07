@@ -1,7 +1,6 @@
 package input.components.segment;
 
 import input.components.point.PointNode;
-import utilities.math.MathUtilities;
 
 /**
  * A utility class only for representing ONE segment

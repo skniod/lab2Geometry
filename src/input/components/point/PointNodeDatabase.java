@@ -4,34 +4,39 @@ import java.util.*;
 
 public class PointNodeDatabase {
 
-	 	ArrayList<PointNode> ptDatabase;
+	 	protected Set<PointNode> ptDatabase;
 	
 		public PointNodeDatabase()
 		{
-		ptDatabase = new ArrayList<>();
+		ptDatabase = new LinkedHashSet<PointNode>();
 		}
 		
-		public PointNodeDatabase(List <PointNode> points) 
+		public PointNodeDatabase(Set <PointNode> points) 
 		{
-		ptDatabase = new ArrayList<>(points);	
+		ptDatabase = new LinkedHashSet<PointNode>(points);	
 		}
+		
 		public void put(PointNode point) 
 		{
 			ptDatabase.add(point);
 		}
+		
 		public boolean contains(PointNode point)
 		{
 			return ptDatabase.contains(point);
 		}
+		
 		public boolean contains(double x, double y)
 		{
 			PointNode comparison = new PointNode(x, y);
 			return ptDatabase.contains(comparison);
 		}
+		
 		public String getName(PointNode point)
 		{
 			return point.getName();
 		}
+		
 		public String getName(double x, double y)
 		{
 			PointNode comparison = new PointNode(x, y);
@@ -41,10 +46,12 @@ public class PointNodeDatabase {
 			}
 			return null;
 		}
+		
 		public PointNode getPoint(PointNode point)
 		{
 			return point;
 		}
+		
 		public PointNode getPoint(double x, double y)
 		{
 			PointNode comparison = new PointNode(x, y);
