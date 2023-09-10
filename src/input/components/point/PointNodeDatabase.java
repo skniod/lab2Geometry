@@ -1,3 +1,11 @@
+/**
+* This class uses PointNode to create a LinkedHashSet of points.
+* Its methods allow for manipulation of this database.
+*
+* @author Flynn Nisbet & Jalen Livingston
+* @date 09-07-2023
+*/
+
 package input.components.point;
 
 import java.util.*;
@@ -28,38 +36,32 @@ public class PointNodeDatabase {
 		
 		public boolean contains(double x, double y)
 		{
-			PointNode comparison = new PointNode(x, y);
-			return ptDatabase.contains(comparison);
+			return contains(new PointNode(x, y));
 		}
 		
 		public String getName(PointNode point)
 		{
-			return point.getName();
+			return getPoint(point).getName();
 		}
 		
 		public String getName(double x, double y)
 		{
-			PointNode comparison = new PointNode(x, y);
-			for (PointNode point: ptDatabase)
-			{
-				if (comparison.equals(point))return point.getName();
-			}
-			return null;
+			return getPoint(x, y).getName();
 		}
 		
 		public PointNode getPoint(PointNode point)
 		{
-			return point;
+			return getPoint(point.getX(), point.getY());
 		}
 		
 		public PointNode getPoint(double x, double y)
 		{
-			PointNode comparison = new PointNode(x, y);
+			PointNode pt = new PointNode(x, y);
 			for (PointNode point: ptDatabase)
 			{
-				if (comparison.equals(point))return point;
+				if (point.equals(pt))return point;
 			}
-			ptDatabase.add(comparison);
-			return comparison;
+			ptDatabase.add(pt);
+			return pt;
 		}
 }

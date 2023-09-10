@@ -1,8 +1,10 @@
+package input.components.segment;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class JUnitLab2 {
+class jUnitLab {
 
 	@Test
 	void test() {

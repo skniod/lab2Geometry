@@ -14,7 +14,7 @@ public class SegmentNode
 	public PointNode getPoint2() { return _point2; }
 	
 	public SegmentNode(PointNode pt1, PointNode pt2)
-	{
+	{			
 		this._point1 = pt1;
 		this._point2 = pt2;
 	}
@@ -27,15 +27,8 @@ public class SegmentNode
 		if (!(obj instanceof SegmentNode)) return false;
 		SegmentNode o = (SegmentNode) obj;
 		
-		//Finding which o point that _point1 is equal to, so that we can compare _point2 with the other
-		boolean which = true;
-		if ((_point1.equals(o.getPoint1())) && !(_point1.equals(o.getPoint2())));
-		else if (!(_point1.equals(o.getPoint1())) && (_point1.equals(o.getPoint2()))) which = false;
-		else return false;
-		
-		//Compares _point2 with the remaining point
-		if(which) return (_point2.equals(o.getPoint2()));
-		return (_point2.equals(o.getPoint1()));
+		if (o._point1.equals(o._point2))return false;
+		return ((_point1.equals(o._point1) && _point2.equals(o._point2)) || (_point1.equals(o._point2)) && _point2.equals(o._point1));
 	}
 	public String toString()
     {
